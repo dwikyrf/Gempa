@@ -18,12 +18,25 @@ public class GempaAdapter extends RecyclerView.Adapter<GempaAdapter.GempaViewHol
 
     ArrayList<Gempa> listGempa = new ArrayList<>();
 
+
+
+    ItemGempaClickListener listener;
+
     public GempaAdapter(ArrayList<Gempa> listGempa) {
         this.listGempa = listGempa;
     }
 
+    public GempaAdapter(ArrayList<Gempa> listGempa, ItemGempaClickListener listener) {
+        this.listGempa = listGempa;
+        this.listener = listener;
+    }
+
     public void setListGempa(ArrayList<Gempa> listGempa) {
         this.listGempa = listGempa;
+    }
+
+    public void setListener(ItemGempaClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -49,7 +62,11 @@ public class GempaAdapter extends RecyclerView.Adapter<GempaAdapter.GempaViewHol
         return listGempa.size();
     }
 
-    public class GempaViewHolder extends RecyclerView.ViewHolder {
+    public interface ItemGempaClickListener{
+        void onItemGempaClick(Gempa gempa);
+    }
+
+    public class GempaViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
 
         public ImageView img_gempa;
         public TextView textLokasi, textWaktu, textSR;
@@ -61,6 +78,13 @@ public class GempaAdapter extends RecyclerView.Adapter<GempaAdapter.GempaViewHol
             textWaktu = itemView.findViewById(R.id.texttgl);
             textSR = itemView.findViewById(R.id.textSR);
 
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Gempa gempa = listGempa.get(getAdapterPosition());
+            listener.onItemGempaClick(gempa);
         }
     }
 }

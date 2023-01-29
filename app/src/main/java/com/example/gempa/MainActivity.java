@@ -4,14 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.gempa.adapters.GempaAdapter;
 import com.example.gempa.models.Gempa;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GempaAdapter.ItemGempaClickListener{
 
     private RecyclerView rvGempa;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         rvGempa = findViewById(R.id.rv_gempa);
 
         GempaAdapter adapter = new GempaAdapter(getGempa());
+        adapter.setListener(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         rvGempa.setLayoutManager(layoutManager);
@@ -88,5 +91,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         return listGempa;
+    }
+
+    @Override
+    public void onItemGempaClick(Gempa gempa) {
+        Toast.makeText(this, "Lokasi Gempa di " + gempa.getLokasi(), Toast.LENGTH_SHORT).show();
+        Intent detailIntent = new Intent(this, GempatDetailActivity.class);
+        detailIntent.putExtra("lokasi", gempa.getLokasi());
+        startActivity(detailIntent);
     }
 }
