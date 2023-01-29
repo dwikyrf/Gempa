@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_gempa"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginBottom="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageGempa"
+            android:layout_width="88dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_gempa" />
+
+        <TextView
+            android:id="@+id/text_Lokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Padang"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageGempa"
+            app:layout_constraintTop_toTopOf="@+id/imageGempa" />
+
+        <TextView
+            android:id="@+id/texttgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="19-10-1998"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/text_Lokasi"
+            app:layout_constraintTop_toBottomOf="@+id/text_Lokasi" />
+
+        <TextView
+            android:id="@+id/textSR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="6.8 MG"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/texttgl"
+            app:layout_constraintTop_toBottomOf="@+id/texttgl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
