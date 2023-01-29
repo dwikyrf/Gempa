@@ -37,7 +37,7 @@ public class GempaAdapter extends RecyclerView.Adapter<GempaAdapter.GempaViewHol
     @Override
     public void onBindViewHolder(@NonNull GempaViewHolder holder, int position) {
         Gempa gempa =listGempa.get(position);
-        holder.img_gempa.setImageResource(R.drawable.img_gempa);
+//        holder.img_gempa.setImageResource(R.drawable.img_gempa);
         holder.textLokasi.setText(gempa.getLokasi());
         holder.textWaktu.setText(gempa.getTanggal());
         holder.textSR.setText(gempa.getSr());

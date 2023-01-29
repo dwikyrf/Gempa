@@ -1,7 +1,5 @@
 package com.example.gempa.models;
 
-import java.util.Date;
-
 public class Gempa {
 
     String gambar;
@@ -9,7 +7,7 @@ public class Gempa {
     String tanggal;
     String sr;
 
-    public Gempa(){ }
+    public Gempa(Object o, int i, String padang, String s, String s1){ }
 
     public Gempa(String gambar, String lokasi, String tanggal, String sr) {
         this.gambar = gambar;
